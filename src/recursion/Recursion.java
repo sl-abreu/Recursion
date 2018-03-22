@@ -28,6 +28,17 @@ public class Recursion {
             return sumaArr(arr,ini,mitad)+sumaArr(arr,mitad,fin);
         }
     }
+    public static int fibonacci(int n){
+        switch (n) {
+            case 0:
+                return 0;
+            case 1:
+            case 2:
+                return 1;
+            default:
+                return fibonacci(n-1)+fibonacci(n-2);
+        }
+    }
     public static void imprimeArrIzqDer(int[] arr,int n){
         if(n>0){
             imprimeArrIzqDer(arr,n-1);
