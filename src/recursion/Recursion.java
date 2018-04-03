@@ -39,6 +39,28 @@ public class Recursion {
                 return fibonacci(n-1)+fibonacci(n-2);
         }
     }
+    
+    //problemas realmente recursivos
+    public static int torresHanoi(int n){
+        if(n>0)
+            return torresHanoi(n,"Origen","Destino","Auxiliar",0);
+        else
+            return -1;
+    }
+    private static int torresHanoi(int n, String ori, String des, String aux, int mov){
+        if(n==1){
+            mov++;
+            System.out.println(mov+":\t"+ori+" --> "+des);
+            return mov;
+        }
+        else{
+            mov=torresHanoi(n-1,ori,aux,des,mov);
+            mov++;
+            System.out.println(mov+":\t"+ori+" --> "+des);
+            return torresHanoi(n-1,aux,des,ori,mov);
+        }
+    }
+    
     public static void imprimeArrIzqDer(int[] arr,int n){
         if(n>0){
             imprimeArrIzqDer(arr,n-1);
@@ -55,11 +77,7 @@ public class Recursion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] arr={5,7,1,8,3,4,10};
-        System.out.println(sumaArr(arr,0,arr.length));
-        imprimeArrIzqDer(arr,arr.length);
-        System.out.println("");
-        imprimeArrDerIzq(arr,arr.length);
+        System.out.println("\n"+torresHanoi(8)+" movimientos");
     }
     
 }
