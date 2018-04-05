@@ -48,6 +48,32 @@ public class ArreglosBidimensionales {
         return res;
     }
     
+    public static int[][] sumMatrix(int[][] a,int[][] b,int rA,int cA,int rB,int cB){
+        int[][] res=null;
+        
+        if(rA==rB && cA==cB){
+            res=new int[rA][cB];
+            
+            for(int i=0;i<rA;i++)
+                for(int j=0;j<cB;j++)
+                    res[i][j]=a[i][j]+b[i][j];
+        }
+        return res;
+    }
+    public static int[][] prodMatrix(int[][] a,int[][] b,int rA,int cA,int rB,int cB){
+        int[][] res=null;
+        
+        if(cA==rB){
+            res=new int[rA][cB];
+            
+            for(int i=0;i<rA;i++)
+                for(int j=0;j<cB;j++)
+                    for(int m=0;m<cA;m++)
+                        res[i][j]+=a[i][m]*b[m][j];
+        }
+        return res;
+    }
+    
     public static void main(String[] args) {
         int[][] pru={{2,6,3,7},{6,2,9,4},{9,10,5,8}};
         int[] may;
