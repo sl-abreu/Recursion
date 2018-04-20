@@ -79,7 +79,7 @@ public class Maze2
       if (row >= 0 && row < grid.length &&
           column >= 0 && column < grid[row].length)
 
-         /**  check if cell is not blocked and not previously tried */
+         /** check if cell is not blocked and not previously tried */
          if (grid[row][column] == '.')
             result = true;
 
